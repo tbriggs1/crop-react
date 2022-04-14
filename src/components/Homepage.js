@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from 'react-router-dom';
 
 const Homepage = () => {
     return(
@@ -9,7 +10,7 @@ const Homepage = () => {
                 Hit the link below to get started on crop Management, once you sign up you'll be able to add your flowers and vegitables to your system!
                 Make sure you add friends so they can see what crops you have planted!
             </p>
-            <button>Sign up here!</button>
+            <Link to="/registration">Sign up here!</Link>
         </div>
     )
 }
