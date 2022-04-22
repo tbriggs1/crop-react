@@ -18,4 +18,4 @@ const Register = ({un, pw, fn, ln, email}) => {
     )
 }
 
-export default Register;
+export default Register; 
