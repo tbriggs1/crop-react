@@ -1,7 +1,9 @@
 import React from "react";
 import axios from "axios";
 
-const Register = ({un, pw, fn, ln, email}) => {
+
+const Register = ({un, pw, fn, ln, email, setcheckReg}) => {
+
 
     const pdefaul = (e) => {
         e.preventDefault();
@@ -11,8 +13,15 @@ const Register = ({un, pw, fn, ln, email}) => {
             'Content-Type': 'application/json'
         }
         axios.post('http://127.0.0.1:5000/user', body, {headers})
+        .then(function (response){
+            console.log(response)
+            if(response.status === 200){
+                setcheckReg(1)
+            }
+        })
     }
 
+ 
     return(
         <button onClick={pdefaul} >Register</button>
     )

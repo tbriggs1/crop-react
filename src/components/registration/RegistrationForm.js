@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Register from "./Register";
 
-const RegistrationForm = () => {
+const RegistrationForm = ({setcheckReg}) => {
 
     const [username, setUsername] = useState();
     const [firstname, setFirstname] = useState();
@@ -53,7 +53,7 @@ const RegistrationForm = () => {
                     Password:
                     <input onChange={cPassword} type="password" name="password" />
                 </label>
-                <Register un={username} pw={password} fn={firstname} ln={lastname} email={email}/>
+                <Register un={username} pw={password} fn={firstname} ln={lastname} email={email} setcheckReg={setcheckReg}/>
             </form>
         </div>
     )
