@@ -10,6 +10,8 @@ const Homepage = () => {
                 Hit the link below to get started on crop Management, once you sign up you'll be able to add your flowers and vegitables to your system!
                 Make sure you add friends so they can see what crops you have planted!
             </p>
+            <Link to="/login">Login</Link>
+            <p>Or</p>
             <Link to="/registration">Sign up here!</Link>
         </div>
     )
