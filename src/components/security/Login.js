@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import axios from "axios";
-import { Navigate } from 'react-router-dom';
+import { Link, Navigate } from 'react-router-dom';
 
 function Login(props) {
 
@@ -34,14 +34,6 @@ function Login(props) {
 
       event.preventDefault()
       
-
-      
-      return(
-        <Navigate to='/profile' />
-      )
-
-      
-      
     }
 
     function handleChange(event) { 
@@ -71,6 +63,7 @@ function Login(props) {
 
           <button onClick={logMeIn}>Submit</button>
         </form>
+        <Link to="/registration">Sign up here!</Link>
       </div>
     );
 }

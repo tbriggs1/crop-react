@@ -1,5 +1,6 @@
 import {
   BrowserRouter as Router,
+  Link,
   Navigate,
   Route,
   Routes
@@ -15,23 +16,26 @@ import useToken from "./components/security/useToken";
 function App() {
   const {token, removeToken, setToken} = useToken();
 
+
   return (
     <div className="App">
       <Router>
         <Header token={removeToken}/>
         <Routes>
-          <Route path="/" element={<Homepage />} />
+          <Route path="/" element={<Homepage />} token={token} setToken={setToken}/>
         </Routes>
           {!token && token!=="" &&token!== undefined?
-        <Routes>
-          <Route path="/registration" element={<Registration />} setToken={setToken}/>
-          <Route path="/login" element={<Login setToken={setToken} token={token}/>} />
-        </Routes>
+          <div>
+            <Login setToken={setToken} token={token}/>
+          </div>
+          
         :
-          <Routes>
-            <Route path="/login" element={<Login setToken={setToken} token={token}/>} />
-            <Route exact path="/profile" element={<Profile token={token} setToken={setToken}/>}></Route>
-          </Routes>
+          <div>
+            <Link to='/profile'>Head to your dashboard</Link>
+            <Routes>
+              <Route exact path="/profile" element={<Profile token={token} setToken={setToken}/>}></Route>
+            </Routes>
+          </div>
         }
         {/* <Routes>
           

@@ -9,10 +9,11 @@ function Profile(props) {
       method: "GET",
       url:"http://localhost:5000/profile",
       headers: {
-        Authorization: 'Bearer ' + props.token
+        Authorization: 'JWT ' + props.token
       }
     })
     .then((response) => {
+      console.log(props.token)
       const res =response.data
       res.access_token && props.setToken(res.access_token)
       setProfileData(({
@@ -20,6 +21,7 @@ function Profile(props) {
         about_me: res.about}))
     }).catch((error) => {
       if (error.response) {
+        console.log(props.token)
         console.log(error.response)
         console.log(error.response.status)
         console.log(error.response.headers)
