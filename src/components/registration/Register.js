@@ -12,7 +12,7 @@ const Register = ({un, pw, fn, ln, email, setcheckReg}) => {
         const headers = {
             'Content-Type': 'application/json'
         }
-        axios.post('http://localhost:5000/user', body, {headers})
+        axios.post('http://51.89.220.72:5000/user', body, {headers})
         .then(function (response){
             console.log(response)
             if(response.status === 200){

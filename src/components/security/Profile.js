@@ -7,7 +7,7 @@ function Profile(props) {
   useEffect(() => {
     axios({
       method: "GET",
-      url:"http://localhost:5000/user",
+      url:"http://51.89.220.72:5000/user",
       headers: {
         Authorization: 'JWT ' + props.token
       }

@@ -12,7 +12,7 @@ function Login(props) {
     function logMeIn(event) {
       axios({
         method: "POST",
-        url:"http://localhost:5000/auth",
+        url:"http://51.89.220.72:5000/auth",
         data:{
           username: loginForm.email,
           password: loginForm.password
