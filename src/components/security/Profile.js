@@ -1,44 +1,35 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import axios from "axios";
 
 function Profile(props) {
 
   const [profileData, setProfileData] = useState(null)
-  function getData() {
+  useEffect(() => {
     axios({
       method: "GET",
-      url:"http://localhost:5000/profile",
+      url:"http://localhost:5000/user",
       headers: {
         Authorization: 'JWT ' + props.token
       }
     })
     .then((response) => {
-      console.log(props.token)
+      console.log(response.data)
       const res =response.data
-      res.access_token && props.setToken(res.access_token)
-      setProfileData(({
-        profile_name: res.name,
-        about_me: res.about}))
+      setProfileData(res.firstname)
+      console.log("hi")
     }).catch((error) => {
-      if (error.response) {
-        console.log(props.token)
-        console.log(error.response)
-        console.log(error.response.status)
-        console.log(error.response.headers)
-        }
-    })}
+      console.log("error")
+    }
+  )});
 
   return (
     <div className="Profile">
 
-        <p>To get your profile details: </p><button onClick={getData}>Click me</button>
-        {profileData && <div>
-              <p>Profile name: {profileData.profile_name}</p>
-              <p>About me: {profileData.about_me}</p>
-            </div>
-        }
-
+              <h1>Hello! {profileData}</h1>
     </div>
+
+
+  
   );
 }
 

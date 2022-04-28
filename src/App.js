@@ -27,8 +27,10 @@ function App() {
           {!token && token!=="" &&token!== undefined?
           <div>
             <Login setToken={setToken} token={token}/>
+            <Routes>
+            <Route exact path="/registration" element={<Registration token={token} setToken={setToken}/>}></Route>
+            </Routes>
           </div>
-          
         :
           <div>
             <Link to='/profile'>Head to your dashboard</Link>

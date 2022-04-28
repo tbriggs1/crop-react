@@ -9,7 +9,7 @@ const Registration = () => {
     
     if (checkReg === 1){
         return(
-            <Navigate to='/dashboard' />
+            <Navigate to='/' />
         )
     }
     return (
