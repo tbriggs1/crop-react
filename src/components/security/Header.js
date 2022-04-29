@@ -5,6 +5,11 @@ function Header(props) {
 
   function logMeOut() {
         props.token();
+        console.log(props.creds)
+        props.setCreds(({
+            username: "",
+            password: ""}));
+        console.log(props.creds)
     }
 
     return(

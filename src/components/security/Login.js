@@ -4,15 +4,15 @@ import { Link, Navigate } from 'react-router-dom';
 
 function Login(props) {
 
-    const [loginForm, setloginForm] = useState({
-      username: "",
-      password: ""
-    })
+  const [loginForm, setloginForm] = useState({
+    username: "",
+    password: ""
+  })
 
     function logMeIn(event) {
       axios({
         method: "POST",
-        url:"http://51.89.220.72:5000/auth",
+        url:"http://localhost:5000/auth",
         data:{
           username: loginForm.email,
           password: loginForm.password

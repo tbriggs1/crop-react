@@ -7,7 +7,7 @@ function Profile(props) {
   useEffect(() => {
     axios({
       method: "GET",
-      url:"http://51.89.220.72:5000/user",
+      url:"http://localhost:5000/user",
       headers: {
         Authorization: 'JWT ' + props.token
       }
@@ -15,12 +15,14 @@ function Profile(props) {
     .then((response) => {
       console.log(response.data)
       const res =response.data
+      props.setCreds(({
+        username: res.username,
+        password: res.password}))
       setProfileData(res.firstname)
-      console.log("hi")
     }).catch((error) => {
       console.log("error")
     }
-  )});
+  )}, []);
 
   return (
     <div className="Profile">
